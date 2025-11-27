@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> simple calculator</title>
+</head>
+
+<body>
+
+    <h3> calculator</h3>
+
+    <input id="n1" type="number" placeholder="first number">
+    <input id="n" type="number" placeholder="second number">
+
+</body>
+<select id="op">
+    <option value="+">+</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="-">-</option>
+</select>
+
+
+<button onclick="calc()">calculator</button>
+<p>result: <span id="res"></span></p>
+
+
+
+<script>
+    function calc() {
+        let a = Number(document.getElementById("n1").value);
+        let b = Number(document.getElementById("n2").value);
+        let op = document.getElementById("op").value;
+
+        let r;
+
+        if (op === "+") r = a + b;
+        else if (op === "-") r = a - b;
+        else if (op === "*") r = a * b;
+        else if (op === "/") r = a / b;
+        document.getElementById("res").testcontent=r;
+        
+    }
+</script>
+
+</body>
+
+</html>
