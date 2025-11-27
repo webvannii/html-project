@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Today's Day</h2>
+    <p id="day-text"></p>
+
+    <img id="day-image" src="image/today-day.webp" style="width: 500px; height: 500px;">
+
+    <input type="text" id="inputfield" placeholder="Enter any number 1–7">
+    <button onclick="clicktochange()">Click to Change</button>
+
+    <script>
+        function clicktochange() {
+
+            let inputfield = document.getElementById("inputfield");
+            let img = document.getElementById("day-image");
+            let dayText = document.getElementById("day-text");
+
+            let value = inputfield.value;
+
+            switch (value) {
+                case "1":
+                    dayText.innerText = "Today is Sunday";
+                    img.src = "image/sunday.jpg";
+                    break;
+
+                case "2":
+                    dayText.innerText = "Today is Monday";
+                    img.src = "image/monday.webp";
+                    break;
+
+                case "3":
+                    dayText.innerText = "Today is Tuesday";
+                    img.src = "image/tuesday.png";
+                    break;
+
+                case "4":
+                    dayText.innerText = "Today is Wednesday";
+                    img.src = "image/Wednesday.png";
+                    break;
+
+                case "5":
+                    dayText.innerText = "Today is Thursday";
+                    img.src = "image/thursday.jpg";
+                    break;
+
+                case "6":
+                    dayText.innerText = "Today is Friday";
+                    img.src = "image/friday.jpg";
+                    break;
+
+                case "7":
+                    dayText.innerText = "Today is Saturday";
+                    img.src = "image/Saturday.png";
+                    break;
+
+                default:
+                    dayText.innerText = "Please enter a number between 1 and 7";
+                    img.src = "image/today-day.webp";
+            }
+        }
+
+        // AUTO CHANGE BASED ON TODAY'S REAL DAY
+        function autoDay() {
+            let today = new Date().getDay(); // 0=Sun, 1=Mon...
+            let input = document.getElementById("inputfield");
+
+            if (today === 0) {
+                input.value = "1"; // Sunday → 1
+            } else {
+                input.value = (today + 1).toString();
+            }
+
+            clicktochange();
+        }
+
+        autoDay(); // Runs automatically
+    </script>
+</body>
