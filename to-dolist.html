@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document </title>
+  </head>
+
+  <body>
+    <h1>TO-DO LIST</h1>
+    <div class="container">
+      <input type="text" id="userinput" onkeypress="clickonenter(event)" />
+
+      <button onclick="clicktoadd()">click to add</button>
+      <button onclick="removeall()">remove all task</button>
+
+      <ul id="list-container"></ul>
+    </div>
+
+    <script>
+      //   let input = document.getElementById("userinput").value;
+      function clicktoadd() {
+        const userinput = document.getElementById("userinput").value;
+        const listcontainer = document.getElementById("list-container");
+
+        if (userinput.trim() === "") return;
+
+        listcontainer.innerHTML += `
+        <li>
+          ${userinput}
+          <button onclick="this.parentNode.remove()">Delete</button>
+        </li>
+      `;
+
+        document.getElementById("userinput").value = "";
+      }
+
+      function clickonenter(e) {
+        if (e.key === "Enter") {
+          clicktoadd();
+        }
+      }
+
+      function removeall() {
+        document.getElementById("list-container").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
